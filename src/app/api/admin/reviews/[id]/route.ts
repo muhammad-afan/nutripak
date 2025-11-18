@@ -14,7 +14,7 @@ export async function GET(
 
     const { id } = await params;
 
-    const pendingReview = await PendingReview.findById(id).lean();
+    const pendingReview = await PendingReview.findById(id).lean() as any;
 
     if (!pendingReview) {
       return NextResponse.json({ error: "Review not found" }, { status: 404 });
