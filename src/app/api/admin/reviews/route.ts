@@ -7,14 +7,14 @@ import Review from "@/models/Review";
 export async function GET(request: NextRequest) {
   try {
     await requireAdmin();
+    const country =
+   request.headers.get("x-vercel-ip-country") ?? "UNKNOWN";
+    console.log("🚀 ~ GET ~ country:", country)
+
+    console.log("these are complete headers", request.headers);
     await dbConnect();
 
 
-     const country =
-    request.headers.get("x-vercel-ip-country") ?? "UNKNOWN";
-     console.log("🚀 ~ GET ~ country:", country)
-
-     console.log("these are complete headers", request.headers);
 
     const { searchParams } = new URL(request.url);
     const phone = searchParams.get("phone");
