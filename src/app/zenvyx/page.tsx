@@ -1,20 +1,15 @@
 "use client";
 
-import { useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Logo from "@/components/brand/Logo";
 import { motion } from "framer-motion";
-import { Heart, CheckCircle } from "lucide-react";
+import { Heart, CheckCircle, ExternalLink } from "lucide-react";
 
 export default function ThankYouPage() {
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      window.location.href = "https://wa.zenvyx.tech";
-    }, 1500); // 1.5s delay so you can visually confirm page loads
-
-    return () => clearTimeout(timer);
-  }, []);
+  const handleOpenDashboard = () => {
+    window.open("https://wa.zenvyx.tech", "_blank", "noopener,noreferrer");
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4 bg-brand-cream">
@@ -48,7 +43,7 @@ export default function ThankYouPage() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-4">
                 <CheckCircle className="h-8 w-8 text-green-600" />
               </div>
-              <CardTitle className="text-3xl text-brand-green">Redirecting...</CardTitle>
+              <CardTitle className="text-3xl text-brand-green">Thank You!</CardTitle>
             </motion.div>
 
             <motion.div
@@ -57,7 +52,7 @@ export default function ThankYouPage() {
               transition={{ delay: 0.6 }}
             >
               <CardDescription className="text-lg text-brand-green/80">
-                Taking you to your dashboard
+                Your feedback helps us grow!
               </CardDescription>
             </motion.div>
           </CardHeader>
@@ -71,8 +66,29 @@ export default function ThankYouPage() {
             >
               <div className="flex items-center justify-center gap-2 text-brand-green/70">
                 <Heart className="h-5 w-5 text-brand-terracotta fill-brand-terracotta" />
-                <p className="text-sm">Preparing your workspace…</p>
+                <p className="text-sm">We truly appreciate your time and honest review</p>
               </div>
+
+              <div className="p-4 bg-brand-cream/50 rounded-lg border border-brand-green/10">
+                <p className="text-sm text-brand-green/80">
+                  Your review will help other customers discover our premium products and help us
+                  continue delivering quality nutrition.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 1 }}
+            >
+              <Button
+                onClick={handleOpenDashboard}
+                className="w-full bg-brand-green text-white hover:bg-brand-green/90 transition-all duration-300 flex items-center justify-center gap-2"
+              >
+                Open Dashboard
+                <ExternalLink className="h-4 w-4" />
+              </Button>
             </motion.div>
 
             <motion.div
@@ -82,13 +98,7 @@ export default function ThankYouPage() {
               className="text-center"
             >
               <p className="text-xs text-brand-green/50">
-                If you are not redirected automatically,{" "}
-                <a
-                  href="https://wa.zenvyx.tech"
-                  className="underline text-brand-green"
-                >
-                  click here
-                </a>
+                This will open your dashboard in a new tab
               </p>
             </motion.div>
           </CardContent>
