@@ -192,7 +192,11 @@ export default function AdminDashboardPage() {
                   </TableHeader>
                   <TableBody>
                     {reviews.map((review) => (
-                      <TableRow key={review._id}>
+                      <TableRow 
+                        key={review._id}
+                        onClick={() => router.push(`/admin/reviews/${review._id}`)}
+                        className="cursor-pointer hover:bg-brand-green/5 transition-colors"
+                      >
                         <TableCell className="font-medium">{review.phone}</TableCell>
                         <TableCell>{review.name || "-"}</TableCell>
                         <TableCell className="capitalize">{review.item}</TableCell>
@@ -218,7 +222,7 @@ export default function AdminDashboardPage() {
                         <TableCell className="text-sm text-brand-green/70">
                           {formatDate(review.createdAt)}
                         </TableCell>
-                        <TableCell>
+                        <TableCell onClick={(e) => e.stopPropagation()}>
                           {!review.reviewId && (
                             <Button
                               onClick={() => copyReviewLink(review._id)}
