@@ -35,7 +35,7 @@ export default function RootLayout({
           src="//code.tidio.co/atuqteeif9gxe31vqtmkh4mybjwafvkq.js"
           strategy="lazyOnload"
         />
-        <Script src="https://signed-shopzilla-return-connections.trycloudflare.com/widget.js" data-organization-id="org_39vpiQU1bZeYzBLSr3koGo9qU1Q"/>
+        <Script src="https://flexibility-condition-enhancement-henry.trycloudflare.com/widget.js" data-organization-id="org_39vpiQU1bZeYzBLSr3koGo9qU1Q"/>
       </body>
     </html>
   );
