@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 
@@ -30,6 +31,10 @@ export default function RootLayout({
       >
         {children}
         <Toaster />
+        <Script
+          src="//code.tidio.co/atuqteeif9gxe31vqtmkh4mybjwafvkq.js"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );
